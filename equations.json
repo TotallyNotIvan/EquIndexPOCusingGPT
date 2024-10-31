@@ -1,0 +1,29 @@
+{
+    "equations": [
+      {
+        "title": "Newton's Second Law",
+        "equation": "F = m * a",
+        "subject": "Physics",
+        "variables": ["Force", "Acceleration"]
+      },
+      {
+        "title": "Kinetic Energy",
+        "equation": "KE = 0.5 * m * v^2",
+        "subject": "Physics",
+        "variables": ["Velocity"]
+      },
+      {
+        "title": "Area of a Circle",
+        "equation": "A = π * r^2",
+        "subject": "Mathematics",
+        "variables": ["Area"]
+      },
+      {
+        "title": "Pythagorean Theorem",
+        "equation": "a^2 + b^2 = c^2",
+        "subject": "Mathematics",
+        "variables": []
+      }
+    ]
+  }
+  

@@ -3,24 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Data Organizer</title>
+  <title>Equation Database</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Load MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <div class="container">
     <aside class="sidebar">
-      <h2>Folders</h2>
-      <ul id="folderList">
-        <li onclick="openFolder('Documents')">Documents</li>
-        <li onclick="openFolder('Photos')">Photos</li>
-        <li onclick="openFolder('Music')">Music</li>
+      <h2>Subjects</h2>
+      <ul id="subjectList">
+        <li>
+          <label>
+            <input type="checkbox" class="subject-checkbox" value="Physics" onchange="updateEquationList()">
+            Physics
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" class="subject-checkbox" value="Mathematics" onchange="updateEquationList()">
+            Mathematics
+          </label>
+        </li>
+      </ul>
+      <h2>Variables</h2>
+      <ul id="variableList">
+        <li>
+          <label>
+            <input type="checkbox" class="variable-checkbox" value="Force" onchange="updateEquationList()">
+            Force
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" class="variable-checkbox" value="Velocity" onchange="updateEquationList()">
+            Velocity
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" class="variable-checkbox" value="Acceleration" onchange="updateEquationList()">
+            Acceleration
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" class="variable-checkbox" value="Area" onchange="updateEquationList()">
+            Area
+          </label>
+        </li>
       </ul>
     </aside>
     
     <main class="main-content">
-      <h2 id="currentFolder">Home</h2>
-      <div id="contentArea" class="content-area">
-        <!-- Folder contents will be dynamically loaded here -->
+      <h2>Equations</h2>
+      <div class="equation-table">
+        <div class="equation-row header">
+          <div class="equation-title" onclick="sortEquations('title')">
+            Title <span id="sortArrow" class="arrow">&#8597;</span>
+          </div>
+          <div class="equation-expression">Equation</div>
+          <div class="equation-variables">Variables</div>
+          <div class="equation-subject">Subject</div>
+        </div>
+        <div id="equationList" class="equation-list">
+          <!-- Filtered equations will be displayed here -->
+        </div>
       </div>
     </main>
   </div>
