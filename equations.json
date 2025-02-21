@@ -10,55 +10,55 @@
       "title": "Kinetic Energy",
       "equation": "KE = \\frac{1}{2} m v^2",
       "subject": "Physics",
-      "variables": ["Velocity"]
+      "variables": ["Mass", "Velocity"]
     },
     {
       "title": "Area of a Circle",
       "equation": "A = \\pi r^2",
-      "subject": "Mathematics",
-      "variables": ["Area"]
+      "subject": "Geometry",
+      "variables": ["Radius"]
     },
     {
       "title": "Pythagorean Theorem",
       "equation": "a^2 + b^2 = c^2",
-      "subject": "Mathematics",
-      "variables": []
-    },
-    {
-      "title": "Hooke's Law",
-      "equation": "F = -kx",
-      "subject": "Mechanical Engineering",
-      "variables": ["Force", "Displacement", "Spring Constant"]
+      "subject": "Geometry",
+      "variables": ["Side a", "Side b", "Hypotenuse c"]
     },
     {
       "title": "Ohm's Law",
-      "equation": "V = IR",
-      "subject": "Electrical Engineering",
+      "equation": "V = I R",
+      "subject": "Electrical Science",
       "variables": ["Voltage", "Current", "Resistance"]
     },
     {
       "title": "Power Equation (Electrical)",
-      "equation": "P = VI",
-      "subject": "Electrical Engineering",
+      "equation": "P = V I",
+      "subject": "Electrical Science",
       "variables": ["Power", "Voltage", "Current"]
     },
     {
-      "title": "Bernoulli's Equation",
-      "equation": "P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{constant}",
-      "subject": "Fluid Mechanics",
-      "variables": ["Pressure", "Density", "Velocity", "Gravity", "Height"]
+      "title": "Coulomb's Law",
+      "equation": "F = k_e \\frac{q_1 q_2}{r^2}",
+      "subject": "Physics",
+      "variables": ["Force", "Charge 1", "Charge 2", "Distance"]
     },
     {
-      "title": "Continuity Equation",
-      "equation": "A_1v_1 = A_2v_2",
-      "subject": "Fluid Mechanics",
-      "variables": ["Area", "Velocity"]
+      "title": "Gauss's Law",
+      "equation": "\\oint \\mathbf{E} \\cdot d\\mathbf{A} = \\frac{Q_{enc}}{\\epsilon_0}",
+      "subject": "Physics",
+      "variables": ["Electric Field", "Area", "Charge Enclosed"]
     },
     {
-      "title": "Thermal Conduction",
-      "equation": "q = -kA\\frac{dT}{dx}",
-      "subject": "Thermodynamics",
-      "variables": ["Heat Flux", "Thermal Conductivity", "Area", "Temperature Gradient"]
+      "title": "Kirchhoff's Voltage Law",
+      "equation": "\\sum V = 0",
+      "subject": "Electrical Science",
+      "variables": ["Voltage"]
+    },
+    {
+      "title": "Kirchhoff's Current Law",
+      "equation": "\\sum I = 0",
+      "subject": "Electrical Science",
+      "variables": ["Current"]
     }
   ]
 }
