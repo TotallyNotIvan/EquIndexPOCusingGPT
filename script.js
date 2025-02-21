@@ -1,37 +1,67 @@
 const equationList = document.getElementById('equationList');
+const subjectListEl = document.getElementById('subjectList');
+const variableListEl = document.getElementById('variableList');
 
-// Dummy JSON data for equations with LaTeX format for MathJax
-const equations = [
-  {
-    title: "Newton's Second Law",
-    equation: "F = m \\cdot a",
-    subject: "Physics",
-    variables: ["Force", "Acceleration"]
-  },
-  {
-    title: "Kinetic Energy",
-    equation: "KE = \\frac{1}{2} m v^2",
-    subject: "Physics",
-    variables: ["Velocity"]
-  },
-  {
-    title: "Area of a Circle",
-    equation: "A = \\pi r^2",
-    subject: "Mathematics",
-    variables: ["Area"]
-  },
-  {
-    title: "Pythagorean Theorem",
-    equation: "a^2 + b^2 = c^2",
-    subject: "Mathematics",
-    variables: []
-  }
-];
+let equations = []; // Will be loaded from equations.json
+let sortOrder = 'asc'; // 'asc' for ascending, 'desc' for descending
 
-// Initial sort order
-let sortOrder = 'asc'; // or 'desc'
+// Fetch equations from the external JSON file
+function fetchEquations() {
+  fetch('equations.json')
+    .then(response => response.json())
+    .then(data => {
+      equations = data.equations;
+      populateFilters();      // Populate filter checkboxes based on fetched data
+      updateEquationList();   // Render equations
+    })
+    .catch(err => console.error("Failed to load equations:", err));
+}
 
-// Function to update displayed equations based on selected filters
+// Populate the subject and variable filters dynamically
+function populateFilters() {
+  // Use sets to get unique values
+  const subjectSet = new Set();
+  const variableSet = new Set();
+  
+  equations.forEach(eq => {
+    if (eq.subject) {
+      subjectSet.add(eq.subject);
+    }
+    if (eq.variables && Array.isArray(eq.variables)) {
+      eq.variables.forEach(variable => variableSet.add(variable));
+    }
+  });
+  
+  // Clear existing content (if any)
+  subjectListEl.innerHTML = "";
+  variableListEl.innerHTML = "";
+  
+  // Create checkboxes for subjects
+  subjectSet.forEach(subject => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <label>
+        <input type="checkbox" class="subject-checkbox" value="${subject}" onchange="updateEquationList()">
+        ${subject}
+      </label>
+    `;
+    subjectListEl.appendChild(li);
+  });
+  
+  // Create checkboxes for variables
+  variableSet.forEach(variable => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <label>
+        <input type="checkbox" class="variable-checkbox" value="${variable}" onchange="updateEquationList()">
+        ${variable}
+      </label>
+    `;
+    variableListEl.appendChild(li);
+  });
+}
+
+// Update displayed equations based on selected filters and sort order
 function updateEquationList() {
   const selectedSubjects = Array.from(document.querySelectorAll('.subject-checkbox:checked'))
     .map(checkbox => checkbox.value);
@@ -50,12 +80,9 @@ function updateEquationList() {
   const sortedEquations = filteredEquations.sort((a, b) => {
     const titleA = a.title.toLowerCase();
     const titleB = b.title.toLowerCase();
-
-    if (sortOrder === 'asc') {
-      return titleA.localeCompare(titleB);
-    } else {
-      return titleB.localeCompare(titleA);
-    }
+    return sortOrder === 'asc'
+      ? titleA.localeCompare(titleB)
+      : titleB.localeCompare(titleA);
   });
 
   // Display sorted equations in table format
@@ -89,20 +116,18 @@ function updateEquationList() {
 
   // Re-render MathJax after updating the content
   MathJax.typesetPromise()
-    .then(() => {
-      console.log("Equations rendered successfully!");
-    })
-    .catch((err) => console.error("MathJax rendering failed: ", err));
+    .then(() => console.log("Equations rendered successfully!"))
+    .catch(err => console.error("MathJax rendering failed: ", err));
 }
 
-// Function to sort equations by title
+// Function to sort equations by title when header is clicked
 function sortEquations(criteria) {
   if (criteria === 'title') {
     sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'; // Toggle sort order
-    document.getElementById('sortArrow').innerHTML = sortOrder === 'asc' ? '&#8593;' : '&#8595;'; // Change arrow direction
+    document.getElementById('sortArrow').innerHTML = sortOrder === 'asc' ? '&#8593;' : '&#8595;';
   }
   updateEquationList();
 }
 
-// Load all equations initially
-updateEquationList();
+// Fetch equations when the page loads
+fetchEquations();

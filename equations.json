@@ -1,29 +1,64 @@
 {
-    "equations": [
-      {
-        "title": "Newton's Second Law",
-        "equation": "F = m * a",
-        "subject": "Physics",
-        "variables": ["Force", "Acceleration"]
-      },
-      {
-        "title": "Kinetic Energy",
-        "equation": "KE = 0.5 * m * v^2",
-        "subject": "Physics",
-        "variables": ["Velocity"]
-      },
-      {
-        "title": "Area of a Circle",
-        "equation": "A = π * r^2",
-        "subject": "Mathematics",
-        "variables": ["Area"]
-      },
-      {
-        "title": "Pythagorean Theorem",
-        "equation": "a^2 + b^2 = c^2",
-        "subject": "Mathematics",
-        "variables": []
-      }
-    ]
-  }
-  
+  "equations": [
+    {
+      "title": "Newton's Second Law",
+      "equation": "F = m \\cdot a",
+      "subject": "Physics",
+      "variables": ["Force", "Acceleration"]
+    },
+    {
+      "title": "Kinetic Energy",
+      "equation": "KE = \\frac{1}{2} m v^2",
+      "subject": "Physics",
+      "variables": ["Velocity"]
+    },
+    {
+      "title": "Area of a Circle",
+      "equation": "A = \\pi r^2",
+      "subject": "Mathematics",
+      "variables": ["Area"]
+    },
+    {
+      "title": "Pythagorean Theorem",
+      "equation": "a^2 + b^2 = c^2",
+      "subject": "Mathematics",
+      "variables": []
+    },
+    {
+      "title": "Hooke's Law",
+      "equation": "F = -kx",
+      "subject": "Mechanical Engineering",
+      "variables": ["Force", "Displacement", "Spring Constant"]
+    },
+    {
+      "title": "Ohm's Law",
+      "equation": "V = IR",
+      "subject": "Electrical Engineering",
+      "variables": ["Voltage", "Current", "Resistance"]
+    },
+    {
+      "title": "Power Equation (Electrical)",
+      "equation": "P = VI",
+      "subject": "Electrical Engineering",
+      "variables": ["Power", "Voltage", "Current"]
+    },
+    {
+      "title": "Bernoulli's Equation",
+      "equation": "P + \\frac{1}{2}\\rho v^2 + \\rho gh = \\text{constant}",
+      "subject": "Fluid Mechanics",
+      "variables": ["Pressure", "Density", "Velocity", "Gravity", "Height"]
+    },
+    {
+      "title": "Continuity Equation",
+      "equation": "A_1v_1 = A_2v_2",
+      "subject": "Fluid Mechanics",
+      "variables": ["Area", "Velocity"]
+    },
+    {
+      "title": "Thermal Conduction",
+      "equation": "q = -kA\\frac{dT}{dx}",
+      "subject": "Thermodynamics",
+      "variables": ["Heat Flux", "Thermal Conductivity", "Area", "Temperature Gradient"]
+    }
+  ]
+}
